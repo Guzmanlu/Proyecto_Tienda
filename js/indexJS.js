@@ -7,27 +7,6 @@ function loadCarrito() {
     let carritoList = document.getElementById("carritoList");
     carritoList.innerHTML = "";
 
-    //Ejemplo de Arreglo para Controlar la Información
-    /*
-    let carrito = [{
-        "id": "0",
-        "imagen": "/golden.png",
-        "nombre": "Primero",
-        "descripcion": "Peluche Grande",
-        "costo": "$520",
-        "stock": "En Stock",
-        "cantidad": "3"
-    },
-        {
-            "id": "1",
-            "imagen": "/nutria.png",
-            "nombre": "Segundo",
-            "descripcion": "Peluche Pequeño",
-            "costo": "200",
-            "stock": "En Stock",
-            "cantidad": "1"
-        }];*/
-
     let carrito = JSON.parse(localStorage.getItem("carrito")) || [];
     let precio = 0;
 
@@ -46,7 +25,7 @@ function loadCarrito() {
             <div class="flex-grow-1">
                 <div class="d-flex justify-content-between align-items-start">
                     <h6 class="fw-bold mb-2">${carr.nombre}</h6>
-                    <button class="btn btn-sm btn-outline-danger eliminar-btn" data-id="${index}">
+                    <button class="btn btn-sm btn-outline-danger eliminar-btn" onclick="borrarProducto(${index})">
                         Eliminar
                     </button>
                 </div>
@@ -97,7 +76,6 @@ function loadCantidad(cantidad, id)
 function agregarCarrito(boton, idpeluche) {
     const card = boton.closest('.card');
 
-    // Extraer los datos de la card
     let nombre = card.querySelector('.card-title').textContent;
     let descripcion = card.querySelector('.card-text').textContent;
     let costo = card.querySelector('.text-danger').textContent;
@@ -124,5 +102,12 @@ function agregarCarrito(boton, idpeluche) {
 
         localStorage.setItem("carrito", JSON.stringify(carrito));
     }
+    loadCarrito();
+}
+
+function borrarProducto(index) {
+    let carrito = JSON.parse(localStorage.getItem("carrito")) || [];
+    carrito.splice(index, 1);
+    localStorage.setItem("carrito", JSON.stringify(carrito));
     loadCarrito();
 }
