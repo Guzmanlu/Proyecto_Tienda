@@ -10,29 +10,32 @@ function loadCarrito() {
     //Ejemplo de Arreglo para Controlar la Información
     /*
     let carrito = [{
-        "id": "1",
+        "id": "0",
         "imagen": "/golden.png",
         "nombre": "Primero",
         "descripcion": "Peluche Grande",
         "costo": "$520",
-        "disponibilidad": "En Stock",
+        "stock": "En Stock",
         "cantidad": "3"
     },
         {
-            "id": "2",
+            "id": "1",
             "imagen": "/nutria.png",
             "nombre": "Segundo",
             "descripcion": "Peluche Pequeño",
             "costo": "200",
-            "disponibilidad": "En Stock",
+            "stock": "En Stock",
             "cantidad": "1"
         }];*/
 
-    //let carrito = JSON.parse(localStorage.getItem("carrito")) || [];
+    let carrito = JSON.parse(localStorage.getItem("carrito")) || [];
     let precio = 0;
 
     carrito.forEach((carr, index) =>
     {
+
+        precio += (carr.costo * carr.cantidad);
+
         let li = document.createElement("li");
         li.className = "list-group-item";
 
@@ -54,7 +57,7 @@ function loadCarrito() {
                     <div>
                         <span class="badge bg-primary fs-6 p-2">$${carr.costo}</span>
                         <span class="badge bg-secondary ms-1">Cant:
-                            <select class="form-select form-select-sm w-auto d-inline-block bg-light border-0 rounded-3 px-4 py-1 fw-semibold" onchange="loadCantidad(this.value, ${index}, ${carr.id})">
+                            <select class="form-select form-select-sm w-auto d-inline-block bg-light border-0 rounded-3 px-4 py-1 fw-semibold" onchange="loadCantidad(this.value, ${carr.id})">
                                 <option value="1" ${carr.cantidad == '1' ? 'selected' : ''}>1</option>
                                 <option value="2" ${carr.cantidad == '2' ? 'selected' : ''}>2</option>
                                 <option value="3" ${carr.cantidad == '3' ? 'selected' : ''}>3</option>
@@ -67,7 +70,7 @@ function loadCarrito() {
                             </select>
                         </span>
                     </div>
-                    <small class="text-secondary">Disp: ${carr.disponibilidad}</small>
+                    <small class="text-secondary">Disp: ${carr.stock}</small>
                 </div>
             </div>
         </div>`;
@@ -79,10 +82,47 @@ function loadCarrito() {
     totalPrecio.innerHTML = `<p class="fs-4 fw-bold mb-0">$${precio}</p>`;
 }
 
-function loadCantidad(cantidad, index, id)
+function loadCantidad(cantidad, id)
 {
-    console.log(cantidad);
-    console.log(index);
-    console.log(id);
+    let carrito = JSON.parse(localStorage.getItem("carrito")) || [];
+
+    let producto = carrito.find(item => item.id === id);
+    producto.cantidad = Number(cantidad);
+
+    localStorage.setItem("carrito", JSON.stringify(carrito));
+
+    loadCarrito();
+}
+
+function agregarCarrito(boton, idpeluche) {
+    const card = boton.closest('.card');
+
+    // Extraer los datos de la card
+    let nombre = card.querySelector('.card-title').textContent;
+    let descripcion = card.querySelector('.card-text').textContent;
+    let costo = card.querySelector('.text-danger').textContent;
+    let imagenSrc = card.querySelector('.card-img-top').src;
+    let imagen = imagenSrc.substring(imagenSrc.lastIndexOf('/'));
+    let stock = card.querySelector('.badge').textContent;
+
+    let carrito = JSON.parse(localStorage.getItem("carrito")) || [];
+
+    let productoExistente = carrito.find(item => item.id == idpeluche);
+
+    if (productoExistente) {
+        console.log("Ya Existe");
+    }
+    else {
+        let id = idpeluche;
+        costo = Number(costo.replace('$', ''));
+        let cantidad = 0;
+        cantidad++;
+
+        let nuevoProducto = { id, nombre, descripcion, costo, imagen, stock, cantidad };
+
+        carrito.push(nuevoProducto);
+
+        localStorage.setItem("carrito", JSON.stringify(carrito));
+    }
     loadCarrito();
 }
