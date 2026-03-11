@@ -80,7 +80,7 @@ function agregarCarrito(boton, idpeluche) {
     let descripcion = card.querySelector('.card-text').textContent;
     let costo = card.querySelector('.text-danger').textContent;
     let imagenSrc = card.querySelector('.card-img-top').src;
-    let imagen = imagenSrc.substring(imagenSrc.lastIndexOf('/'));
+    let imagen = imagenSrc.substring(imagenSrc.lastIndexOf('/multimedia'));
     let stock = card.querySelector('.badge').textContent;
 
     let carrito = JSON.parse(localStorage.getItem("carrito")) || [];
