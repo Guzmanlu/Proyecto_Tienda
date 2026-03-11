@@ -1,169 +1,427 @@
 <!DOCTYPE html>
 <html lang="es">
+
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>TIENDA</title>
-    <!-- Bootstrap 5 -->
-<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
-<script src="/js/indexJS.js"></script>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>TIENDA</title>
+  <!-- Bootstrap 5 -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+  <script src="/js/indexJS.js"></script>
 </head>
+
 <body>
-    <nav class="navbar navbar-expand-lg navbar-dark bg-danger">
+  <nav class="navbar navbar-expand-lg navbar-dark bg-danger">
     <div class="container">
 
-    <!-- Logo -->
-    <a class="navbar-brand fw-bold" href="#">
-      🧸 Los Trunquis
-    </a>
+      <!-- Logo -->
+      <a class="navbar-brand fw-bold" href="#">
+        🧸 Los Trunquis
+      </a>
 
-    <!-- Botón responsive -->
-    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarPeluche">
-      <span class="navbar-toggler-icon"></span>
-    </button>
-
-    <!-- Contenido -->
-    <div class="collapse navbar-collapse" id="navbarPeluche">
-
-      <!-- Links -->
-      <ul class="navbar-nav me-auto">
-
-        <li class="nav-item">
-          <a class="nav-link active" href="#">Inicio</a>
-        </li>
-
-        <li class="nav-item">
-          <a class="nav-link" href="#">Peluches</a>
-        </li>
-
-        <li class="nav-item">
-          <a class="nav-link" href="#">Ofertas</a>
-        </li>
-
-        <li class="nav-item">
-          <a class="nav-link" href="#">Nosotros</a>
-        </li>
-
-        <li class="nav-item">
-          <a class="nav-link" href="#">Contacto</a>
-        </li>
-
-      </ul>
-
-      <!-- Buscador -->
-      <form class="d-flex me-3">
-        <input class="form-control me-2" type="search" placeholder="Buscar peluches">
-        <button class="btn btn-light">Buscar</button>
-      </form>
-
-      <!-- Carrito -->
-      <button class="btn btn-warning" type="button" data-bs-toggle="offcanvas" data-bs-target="#carrito"
-        aria-controls="carrito" onclick="loadCarrito()">
-        🛒 Carrito
+      <!-- Botón responsive -->
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarPeluche">
+        <span class="navbar-toggler-icon"></span>
       </button>
 
-    </div>
-    </div>
-</nav>
+      <!-- Contenido -->
+      <div class="collapse navbar-collapse" id="navbarPeluche">
 
-<!-- Inicio OffCanva del Carrito -->
-<div class="offcanvas offcanvas-end" tabindex="-1" id="carrito" aria-labelledby="carritoLabel">
-  <div class="offcanvas-header">
-    <h2 class="offcanvas-title fw-bold" id="carritoLabel">Carrito</h5>
-      <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
-  </div>
-  <div class="offcanvas-body">
-    <p class="fs-5 fw-bold">
-      Los Productos de tu Carrito Son:
-    </p>
-    <div>
-      <ul id="carritoList" class="list-group">
-        <!-- Aquí Se Crean Dinámicamente los Productos Agregados al Carrito con JS desde el localStorage -->
-      </ul>
-    </div>
-  </div>
-  <div class="border border-top p-2">
-    <div class="text-start d-inline-block">
-      <p class="fs-3 fw-bold mb-0">Total:</p>
-    </div>
-    <div class="text-end d-inline-block float-end" id="pagoTotal">
-    </div>
-  </div>
-  <button class="btn btn-outline-success m-3" onclick="">PAGAR</button>
-</div>
-<!-- Final OffCanva del Carrito -->
+        <!-- Links -->
+        <ul class="navbar-nav me-auto">
 
-<!--Seccion de peluches con cards-->
+          <li class="nav-item">
+            <a class="nav-link active" href="#">Inicio</a>
+          </li>
 
-<div class="container my-5">
-  <div class="row justify-content-center g-4">
-    
-    <div class="col-12 col-md-6 col-lg-4">
-      <div class="card shadow h-100" style="max-width: 350px; margin: auto;">
-        <img src="chimuelo.webp" class="card-img-top" alt="peluche de Chimuelo">
-        <div class="card-body text-center d-flex flex-column">
-          <h5 class="card-title fw-bold">Peluche de Chimuelo</h5>
-          <p class="card-text text-muted">Juguete de peluche de la película Cómo Entrenar a tu Dragón, 18 cm.</p>
-          
-          <div class="mt-auto"> <div class="d-flex justify-content-between align-items-center mb-3">
-              <span class="h4 mb-0 text-danger fw-bold">$600</span>
-              <span class="badge bg-success">En Stock</span>
-            </div>
-            <div class="d-grid gap-2">
-              <button class="btn btn-dark" onclick="agregarCarrito(this, 0)">Añadir al carrito</button>
-              <button class="btn btn-outline-secondary btn-sm">Ver detalles</button>
+          <li class="nav-item">
+            <a class="nav-link" href="#">Peluches</a>
+          </li>
+
+          <li class="nav-item">
+            <a class="nav-link" href="#">Ofertas</a>
+          </li>
+
+          <li class="nav-item">
+            <a class="nav-link" href="#">Nosotros</a>
+          </li>
+
+          <li class="nav-item">
+            <a class="nav-link" href="#">Contacto</a>
+          </li>
+
+        </ul>
+
+        <!-- Buscador -->
+        <form class="d-flex me-3">
+          <input class="form-control me-2" type="search" placeholder="Buscar peluches">
+          <button class="btn btn-light">Buscar</button>
+        </form>
+
+        <!-- Carrito -->
+        <button class="btn btn-warning" type="button" data-bs-toggle="offcanvas" data-bs-target="#carrito"
+          aria-controls="carrito" onclick="loadCarrito()">
+          🛒 Carrito
+        </button>
+
+      </div>
+    </div>
+  </nav>
+
+  <!-- Inicio OffCanva del Carrito -->
+  <div class="offcanvas offcanvas-end" tabindex="-1" id="carrito" aria-labelledby="carritoLabel">
+    <div class="offcanvas-header">
+      <h2 class="offcanvas-title fw-bold" id="carritoLabel">Carrito</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+    </div>
+    <div class="offcanvas-body">
+      <p class="fs-5 fw-bold">
+        Los Productos de tu Carrito Son:
+      </p>
+      <div>
+        <ul id="carritoList" class="list-group">
+          <!-- Aquí Se Crean Dinámicamente los Productos Agregados al Carrito con JS desde el localStorage -->
+        </ul>
+      </div>
+    </div>
+    <div class="border border-top p-2">
+      <div class="text-start d-inline-block">
+        <p class="fs-3 fw-bold mb-0">Total:</p>
+      </div>
+      <div class="text-end d-inline-block float-end" id="pagoTotal">
+      </div>
+    </div>
+    <button class="btn btn-outline-success m-3" onclick="">PAGAR</button>
+  </div>
+  <!-- Final OffCanva del Carrito -->
+
+  <!--Seccion de peluches con cards-->
+
+  <div class="container my-5">
+    <div class="row justify-content-center g-4">
+
+      <div class="col-12 col-md-6 col-lg-4">
+        <div class="card shadow h-100" style="max-width: 350px; margin: auto;">
+          <img src="./multimedia/chimuelo.webp" class="card-img-top" alt="peluche de Chimuelo">
+          <div class="card-body text-center d-flex flex-column">
+            <h5 class="card-title fw-bold">Peluche de Chimuelo</h5>
+            <p class="card-text text-muted">Juguete de peluche de la película Cómo Entrenar a tu Dragón, 18 cm.</p>
+
+            <div class="mt-auto">
+              <div class="d-flex justify-content-between align-items-center mb-3">
+                <span class="h4 mb-0 text-danger fw-bold">$600</span>
+                <span class="badge bg-success">En Stock</span>
+              </div>
+              <div class="d-grid gap-2">
+                <button class="btn btn-dark" onclick="agregarCarrito(this, 0)">Añadir al carrito</button>
+                <button class="btn btn-outline-secondary btn-sm">Ver detalles</button>
+              </div>
             </div>
           </div>
         </div>
       </div>
-    </div>
 
-    <div class="col-12 col-md-6 col-lg-4">
-      <div class="card shadow h-100" style="max-width: 350px; margin: auto;">
-        <img src="pato.jpg" class="card-img-top" alt="Peluche de pato de GRAVITY FALLS">
-        <div class="card-body text-center d-flex flex-column">
-          <h5 class="card-title fw-bold">Peluche de Pato</h5>
-          <p class="card-text text-muted">Peluche de Pato de la serie Gravity Falls, 18 cm.</p>
-          
-          <div class="mt-auto">
-            <div class="d-flex justify-content-between align-items-center mb-3">
-              <span class="h4 mb-0 text-danger fw-bold">$350</span>
-              <span class="badge bg-success">En Stock</span>
-            </div>
-            <div class="d-grid gap-2">
-              <button class="btn btn-danger" onclick="agregarCarrito(this, 1)">Añadir al carrito</button>
-              <button class="btn btn-outline-secondary btn-sm">Ver detalles</button>
+      <div class="col-12 col-md-6 col-lg-4">
+        <div class="card shadow h-100" style="max-width: 350px; margin: auto;">
+          <img src="./multimedia/pato.jpg" class="card-img-top" alt="Peluche de pato de GRAVITY FALLS">
+          <div class="card-body text-center d-flex flex-column">
+            <h5 class="card-title fw-bold">Peluche de Pato</h5>
+            <p class="card-text text-muted">Peluche de Pato de la serie Gravity Falls, 18 cm.</p>
+
+            <div class="mt-auto">
+              <div class="d-flex justify-content-between align-items-center mb-3">
+                <span class="h4 mb-0 text-danger fw-bold">$350</span>
+                <span class="badge bg-success">En Stock</span>
+              </div>
+              <div class="d-grid gap-2">
+                <button class="btn btn-danger" onclick="agregarCarrito(this, 1)">Añadir al carrito</button>
+                <button class="btn btn-outline-secondary btn-sm">Ver detalles</button>
+              </div>
             </div>
           </div>
         </div>
       </div>
-    </div>
 
-     <div class="col-12 col-md-6 col-lg-4">
-      <div class="card shadow h-100" style="max-width: 350px; margin: auto;">
-        <img src="capibara.webp" class="card-img-top" alt="Peluche de Capibara">
-        <div class="card-body text-center d-flex flex-column">
-          <h5 class="card-title fw-bold">Peluche de Capibara</h5>
-          <p class="card-text text-muted">Peluche de un Capibara con una mochila verde, 23 cm.</p>
-          
-          <div class="mt-auto">
-            <div class="d-flex justify-content-between align-items-center mb-3">
-              <span class="h4 mb-0 text-danger fw-bold">$400</span>
-              <span class="badge bg-success">En Stock</span>
-            </div>
-            <div class="d-grid gap-2">
-              <button class="btn btn-danger" onclick="agregarCarrito(this, 2)">Añadir al carrito</button>
-              <button class="btn btn-outline-secondary btn-sm">Ver detalles</button>
+      <div class="col-12 col-md-6 col-lg-4">
+        <div class="card shadow h-100" style="max-width: 350px; margin: auto;">
+          <img src="./multimedia/capibara.webp" class="card-img-top" alt="Peluche de Capibara">
+          <div class="card-body text-center d-flex flex-column">
+            <h5 class="card-title fw-bold">Peluche de Capibara</h5>
+            <p class="card-text text-muted">Peluche de un Capibara con una mochila verde, 23 cm.</p>
+
+            <div class="mt-auto">
+              <div class="d-flex justify-content-between align-items-center mb-3">
+                <span class="h4 mb-0 text-danger fw-bold">$400</span>
+                <span class="badge bg-success">En Stock</span>
+              </div>
+              <div class="d-grid gap-2">
+                <button class="btn btn-danger" onclick="agregarCarrito(this, 2)">Añadir al carrito</button>
+                <button class="btn btn-outline-secondary btn-sm">Ver detalles</button>
+              </div>
             </div>
           </div>
         </div>
       </div>
-    </div>
 
+      <div class="col-12 col-md-6 col-lg-4">
+        <div class="card shadow h-100" style="max-width: 350px; margin: auto;">
+          <img src="./multimedia/panda.png" class="card-img-top" alt="Peluche de Panda">
+          <div class="card-body text-center d-flex flex-column">
+            <h5 class="card-title fw-bold">Peluche de Panda</h5>
+            <p class="card-text text-muted">Oso de peluche panda en tamaño jumbo, 120 cm.</p>
+
+            <div class="mt-auto">
+              <div class="d-flex justify-content-between align-items-center mb-3">
+                <span class="h4 mb-0 text-danger fw-bold">$780</span>
+                <span class="badge bg-success">En Stock</span>
+              </div>
+              <div class="d-grid gap-2">
+                <button class="btn btn-danger" onclick="agregarCarrito(this, 2)">Añadir al carrito</button>
+                <button class="btn btn-outline-secondary btn-sm">Ver detalles</button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="col-12 col-md-6 col-lg-4">
+        <div class="card shadow h-100" style="max-width: 350px; margin: auto;">
+          <img src="./multimedia/osoSand.png" class="card-img-top" alt="Peluche de Oso Sand">
+          <div class="card-body text-center d-flex flex-column">
+            <h5 class="card-title fw-bold">Oso de peluche Sand Premium </h5>
+            <p class="card-text text-muted">Oso de peluche color arena con un moñito dorado, 50 cm.</p>
+
+            <div class="mt-auto">
+              <div class="d-flex justify-content-between align-items-center mb-3">
+                <span class="h4 mb-0 text-danger fw-bold">$175</span>
+                <span class="badge bg-success">En Stock</span>
+              </div>
+              <div class="d-grid gap-2">
+                <button class="btn btn-danger" onclick="agregarCarrito(this, 2)">Añadir al carrito</button>
+                <button class="btn btn-outline-secondary btn-sm">Ver detalles</button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="col-12 col-md-6 col-lg-4">
+        <div class="card shadow h-100" style="max-width: 350px; margin: auto;">
+          <img src="./multimedia/caroline.png" class="card-img-top" alt="Peluche vaca marron">
+          <div class="card-body text-center d-flex flex-column">
+            <h5 class="card-title fw-bold">Caroline Brown Cow </h5>
+            <p class="card-text text-muted">Vaca de peluche marrón, 12.7 cm.</p>
+
+            <div class="mt-auto">
+              <div class="d-flex justify-content-between align-items-center mb-3">
+                <span class="h4 mb-0 text-danger fw-bold">$180</span>
+                <span class="badge bg-success">En Stock</span>
+              </div>
+              <div class="d-grid gap-2">
+                <button class="btn btn-danger" onclick="agregarCarrito(this, 2)">Añadir al carrito</button>
+                <button class="btn btn-outline-secondary btn-sm">Ver detalles</button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="col-12 col-md-6 col-lg-4">
+        <div class="card shadow h-100" style="max-width: 350px; margin: auto;">
+          <img src="./multimedia/tyranno.png" class="card-img-top" alt="Peluche tiranosaurio">
+          <div class="card-body text-center d-flex flex-column">
+            <h5 class="card-title fw-bold">Tyranno Rex </h5>
+            <p class="card-text text-muted">Dinosaurio de peluche, 12.7 cm.</p>
+
+            <div class="mt-auto">
+              <div class="d-flex justify-content-between align-items-center mb-3">
+                <span class="h4 mb-0 text-danger fw-bold">$180</span>
+                <span class="badge bg-success">En Stock</span>
+              </div>
+              <div class="d-grid gap-2">
+                <button class="btn btn-danger" onclick="agregarCarrito(this, 2)">Añadir al carrito</button>
+                <button class="btn btn-outline-secondary btn-sm">Ver detalles</button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="col-12 col-md-6 col-lg-4">
+        <div class="card shadow h-100" style="max-width: 350px; margin: auto;">
+          <img src="./multimedia/estrella.png" class="card-img-top" alt="Peluche estrella para graduacion">
+          <div class="card-body text-center d-flex flex-column">
+            <h5 class="card-title fw-bold">Magna Graduation Star </h5>
+            <p class="card-text text-muted">Estrella de Graduacion de peluche, 12.7 cm.</p>
+
+            <div class="mt-auto">
+              <div class="d-flex justify-content-between align-items-center mb-3">
+                <span class="h4 mb-0 text-danger fw-bold">$180</span>
+                <span class="badge bg-success">En Stock</span>
+              </div>
+              <div class="d-grid gap-2">
+                <button class="btn btn-danger" onclick="agregarCarrito(this, 2)">Añadir al carrito</button>
+                <button class="btn btn-outline-secondary btn-sm">Ver detalles</button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="col-12 col-md-6 col-lg-4">
+        <div class="card shadow h-100" style="max-width: 350px; margin: auto;">
+          <img src="./multimedia/pingudino.png" class="card-img-top" alt="Peluche pingudino">
+          <div class="card-body text-center d-flex flex-column">
+            <h5 class="card-title fw-bold">Pompom Dino</h5>
+            <p class="card-text text-muted">Pingüino dsifrazado de Dinosaurio 17.78 cm.</p>
+
+            <div class="mt-auto">
+              <div class="d-flex justify-content-between align-items-center mb-3">
+                <span class="h4 mb-0 text-danger fw-bold">$315</span>
+                <span class="badge bg-success">En Stock</span>
+              </div>
+              <div class="d-grid gap-2">
+                <button class="btn btn-danger" onclick="agregarCarrito(this, 2)">Añadir al carrito</button>
+                <button class="btn btn-outline-secondary btn-sm">Ver detalles</button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="col-12 col-md-6 col-lg-4">
+        <div class="card shadow h-100" style="max-width: 350px; margin: auto;">
+          <img src="./multimedia/dino.png" class="card-img-top" alt="Peluche de Dinosaurio">
+          <div class="card-body text-center d-flex flex-column">
+            <h5 class="card-title fw-bold">Diplodocus</h5>
+            <p class="card-text text-muted">Dinosaurio de peluche, 33 cm.</p>
+
+            <div class="mt-auto">
+              <div class="d-flex justify-content-between align-items-center mb-3">
+                <span class="h4 mb-0 text-danger fw-bold">$365</span>
+                <span class="badge bg-success">En Stock</span>
+              </div>
+              <div class="d-grid gap-2">
+                <button class="btn btn-danger" onclick="agregarCarrito(this, 2)">Añadir al carrito</button>
+                <button class="btn btn-outline-secondary btn-sm">Ver detalles</button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="col-12 col-md-6 col-lg-4">
+        <div class="card shadow h-100" style="max-width: 350px; margin: auto;">
+          <img src="./multimedia/elefante.png" class="card-img-top" alt="Peluche de elefante">
+          <div class="card-body text-center d-flex flex-column">
+            <h5 class="card-title fw-bold">Elefante Africano</h5>
+            <p class="card-text text-muted">Elefante de peluche, 30.4 cm.</p>
+
+            <div class="mt-auto">
+              <div class="d-flex justify-content-between align-items-center mb-3">
+                <span class="h4 mb-0 text-danger fw-bold">$705</span>
+                <span class="badge bg-success">En Stock</span>
+              </div>
+              <div class="d-grid gap-2">
+                <button class="btn btn-danger" onclick="agregarCarrito(this, 2)">Añadir al carrito</button>
+                <button class="btn btn-outline-secondary btn-sm">Ver detalles</button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="col-12 col-md-6 col-lg-4">
+        <div class="card shadow h-100" style="max-width: 350px; margin: auto;">
+          <img src="./multimedia/alpaca.png" class="card-img-top" alt="Peluche de alpaca">
+          <div class="card-body text-center d-flex flex-column">
+            <h5 class="card-title fw-bold">Alpaca</h5>
+            <p class="card-text text-muted">Elefante de alpaca, 30.4 cm.</p>
+
+            <div class="mt-auto">
+              <div class="d-flex justify-content-between align-items-center mb-3">
+                <span class="h4 mb-0 text-danger fw-bold">$390</span>
+                <span class="badge bg-success">En Stock</span>
+              </div>
+              <div class="d-grid gap-2">
+                <button class="btn btn-danger" onclick="agregarCarrito(this, 2)">Añadir al carrito</button>
+                <button class="btn btn-outline-secondary btn-sm">Ver detalles</button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="col-12 col-md-6 col-lg-4">
+        <div class="card shadow h-100" style="max-width: 350px; margin: auto;">
+          <img src="./multimedia/oso.png" class="card-img-top" alt="Peluche de oso">
+          <div class="card-body text-center d-flex flex-column">
+            <h5 class="card-title fw-bold">Barley Bear</h5>
+            <p class="card-text text-muted">Oso de peluche de Precious Moments, 21.59 cm.</p>
+
+            <div class="mt-auto">
+              <div class="d-flex justify-content-between align-items-center mb-3">
+                <span class="h4 mb-0 text-danger fw-bold">$390</span>
+                <span class="badge bg-success">En Stock</span>
+              </div>
+              <div class="d-grid gap-2">
+                <button class="btn btn-danger" onclick="agregarCarrito(this, 2)">Añadir al carrito</button>
+                <button class="btn btn-outline-secondary btn-sm">Ver detalles</button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+         <div class="col-12 col-md-6 col-lg-4">
+        <div class="card shadow h-100" style="max-width: 350px; margin: auto;">
+          <img src="./multimedia/ardilla.png" class="card-img-top" alt="Peluche de ardilla">
+          <div class="card-body text-center d-flex flex-column">
+            <h5 class="card-title fw-bold">Ardilla gris</h5>
+            <p class="card-text text-muted">Ardillas de peluche, 25.4 cm.</p>
+
+            <div class="mt-auto">
+              <div class="d-flex justify-content-between align-items-center mb-3">
+                <span class="h4 mb-0 text-danger fw-bold">$435</span>
+                <span class="badge bg-success">En Stock</span>
+              </div>
+              <div class="d-grid gap-2">
+                <button class="btn btn-danger" onclick="agregarCarrito(this, 2)">Añadir al carrito</button>
+                <button class="btn btn-outline-secondary btn-sm">Ver detalles</button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+
+               <div class="col-12 col-md-6 col-lg-4">
+        <div class="card shadow h-100" style="max-width: 350px; margin: auto;">
+          <img src="./multimedia/serpiente.png" class="card-img-top" alt="Peluche de serpiente">
+          <div class="card-body text-center d-flex flex-column">
+            <h5 class="card-title fw-bold">Serpiente roja</h5>
+            <p class="card-text text-muted">Serpiente de peluche, 130 cm.</p>
+
+            <div class="mt-auto">
+              <div class="d-flex justify-content-between align-items-center mb-3">
+                <span class="h4 mb-0 text-danger fw-bold">$350</span>
+                <span class="badge bg-success">En Stock</span>
+              </div>
+              <div class="d-grid gap-2">
+                <button class="btn btn-danger" onclick="agregarCarrito(this, 2)">Añadir al carrito</button>
+                <button class="btn btn-outline-secondary btn-sm">Ver detalles</button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+
+    </div>
   </div>
-</div>
 
-<!-- Bootstrap JS -->
-<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+  <!-- Bootstrap JS -->
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
 </body>
+
 </html>
