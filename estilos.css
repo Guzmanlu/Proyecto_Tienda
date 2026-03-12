@@ -1,0 +1,78 @@
+body { 
+            background: linear-gradient(rgb(255, 255, 255), rgb(253, 247, 247));
+            background-size: cover;
+            color: #f0eada; 
+            font-family: 'Montserrat', sans-serif; 
+            text-align: center;
+            padding-top: 50px;
+        }
+
+        h1 {
+            font-family: 'Bebas Neue', sans-serif; 
+           font-size: 80px;
+            letter-spacing: 5px;
+            color: rgb(245, 6, 6);
+}
+
+
+h2 {
+font-family: 'Bebas Neue', sans-serif; 
+font-size: 40px;
+            letter-spacing: 5px;
+            color: rgb(7, 0, 0);
+            
+}
+        nav {
+            border: 1px solid #333;
+            padding: 40px;
+            display: inline-block;
+            background: rgba(255, 255, 255, 0.05);
+            backdrop-filter: blur(10px);
+            border-radius: 20px;
+            display: inline-block;
+            text-align: center;
+           
+        }
+ol{
+font-family: 'Montserrat', sans-serif;
+text-align: center;
+color: rgb(243, 121, 40);
+
+}
+
+nav li {
+margin: 12px 0;
+font-family: 'Montserrat', sans-serif;
+color: #ec921c;
+text-align: left;
+
+}
+
+nav a {
+text-decoration: none;
+color: #ec921c;
+transition: color 0.3s;
+font-size: 20px;
+}
+
+
+        button {
+            color: white;
+            border: none;
+            padding: 12px 25px;
+            font-family: 'Montserrat', sans-serif;
+            font-size: 20px;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: 0.3s; 
+            margin-top: 15px;
+        }
+
+        h3 {
+            margin: 12px 0;
+            font-family: 'Montserrat', sans-serif;
+            font-size: 15px;
+            color: #f0eada;
+        }
+
+    

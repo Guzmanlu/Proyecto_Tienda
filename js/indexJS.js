@@ -46,6 +46,15 @@ function loadCarrito() {
                                 <option value="7" ${carr.cantidad == '7' ? 'selected' : ''}>7</option>
                                 <option value="8" ${carr.cantidad == '8' ? 'selected' : ''}>8</option>
                                 <option value="9" ${carr.cantidad == '9' ? 'selected' : ''}>9</option>
+                                 <option value="10" ${carr.cantidad == '10' ? 'selected' : ''}>10</option>
+                                <option value="11" ${carr.cantidad == '11' ? 'selected' : ''}>11</option>
+                                <option value="12" ${carr.cantidad == '12' ? 'selected' : ''}>12</option>
+                                <option value="13" ${carr.cantidad == '13' ? 'selected' : ''}>13</option>
+                                <option value="14" ${carr.cantidad == '14' ? 'selected' : ''}>14</option>
+                                <option value="15" ${carr.cantidad == '15' ? 'selected' : ''}>15</option>
+                                 <option value="16" ${carr.cantidad == '16' ? 'selected' : ''}>16</option>
+                                <option value="17" ${carr.cantidad == '17' ? 'selected' : ''}>17</option>
+
                             </select>
                         </span>
                     </div>
