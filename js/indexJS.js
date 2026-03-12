@@ -120,3 +120,5 @@ function borrarProducto(index) {
     localStorage.setItem("carrito", JSON.stringify(carrito));
     loadCarrito();
 }
+
+

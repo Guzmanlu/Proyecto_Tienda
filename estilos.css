@@ -28,7 +28,6 @@ font-size: 40px;
             display: inline-block;
             background: rgba(255, 255, 255, 0.05);
             backdrop-filter: blur(10px);
-            border-radius: 20px;
             display: inline-block;
             text-align: center;
            
@@ -74,5 +73,8 @@ font-size: 20px;
             font-size: 15px;
             color: #f0eada;
         }
-
+body{
+    padding-top: 80px;
+    margin: 0;
+}
     
